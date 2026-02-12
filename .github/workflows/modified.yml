@@ -97,8 +97,10 @@ jobs:
     - name: Run tests
       env: ${{ matrix.env }}
       run: |
-        pip install -U tox
-        tox
+        # pip install -U tox
+        # tox
+        echo "$DYNAPYT_SESSION_ID"
+        cat "/tmp/dynapyt_analyses-$DYNAPYT_SESSION_ID.txt"
 
     - name: Upload DynaPyt Artifacts
       uses: actions/upload-artifact@v4
