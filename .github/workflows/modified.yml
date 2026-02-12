@@ -97,7 +97,7 @@ jobs:
     - name: Run tests
       env: ${{ matrix.env }}
       run: |
-        pip install -U tox
+        pip install -U tox dynapyt
         tox
 
     - name: Upload DynaPyt Artifacts
