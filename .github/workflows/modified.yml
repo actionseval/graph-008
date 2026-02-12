@@ -86,7 +86,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - uses: JavidDitty/setup-dynapyt@bfcaa703c3b5de9f332da417ce7b468be8974fb4
+    - uses: JavidDitty/setup-dynapyt@1e23021590fa1fc78e6063a120729a3abf49edda
 
     - name: Install system libraries
       if: contains(matrix.python-version, 'pypy') || contains(matrix.env.TOXENV, 'pinned')
@@ -97,7 +97,7 @@ jobs:
     - name: Run tests
       env: ${{ matrix.env }}
       run: |
-        pip install -U tox dynapyt
+        pip install -U tox
         tox
 
     - name: Upload DynaPyt Artifacts
