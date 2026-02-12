@@ -86,7 +86,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - uses: JavidDitty/setup-dynapyt@1e23021590fa1fc78e6063a120729a3abf49edda
+    - uses: JavidDitty/setup-dynapyt@c3a8ff6cc1e0d6d376f9346f3459bc17325296d7
 
     - name: Install system libraries
       if: contains(matrix.python-version, 'pypy') || contains(matrix.env.TOXENV, 'pinned')
