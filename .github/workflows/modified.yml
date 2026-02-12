@@ -86,6 +86,8 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
+    - uses: JavidDitty/setup-dynapyt@bfcaa703c3b5de9f332da417ce7b468be8974fb4
+
     - name: Install system libraries
       if: contains(matrix.python-version, 'pypy') || contains(matrix.env.TOXENV, 'pinned')
       run: |
@@ -97,6 +99,13 @@ jobs:
       run: |
         pip install -U tox
         tox
+
+    - name: Upload DynaPyt Artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: ${{ env.DYNAPYT_ARTIFACT_NAME }}
+        path: ${{ env.DYNAPYT_OUTPUT }}
 
     # GRAPH >> REMOVE_UPLOAD
     # - name: Upload coverage report
